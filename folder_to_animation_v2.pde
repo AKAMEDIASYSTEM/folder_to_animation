@@ -6,7 +6,7 @@ import processing.video.*;
 MovieMaker mm;
 PImage currentFrame;
 String filenames;
-String sketchPath = selectFolder("Show me the img folder");  // Opens file chooser
+String sketchPath = selectFolder("Show me the folder where your image sequence lives");  // Opens file chooser
 String[] images;
 String timecode[] = new String[7];
 String fullTime;
@@ -41,7 +41,7 @@ size(720,640);
   timecode[3] = String.valueOf(hour());
   timecode[4] = String.valueOf(minute());
   timecode[5] = String.valueOf(second());
-  timecode[6] = "pc.mov";
+  timecode[6] = ".mov";
   fullTime = join(timecode, "_");
 
 
@@ -49,51 +49,6 @@ size(720,640);
   //String[] filenames = listFileNames(sketchPath);
   //println(filenames);
   images = listFileNames(sketchPath, jpgFilter);
-
-  /*
-  println("\nListing info about all files in a directory: ");
-   File[] files = listFiles(sketchPath);
-   for (int i = 0; i < files.length; i++) {
-   File f = files[i];    
-   println("Name: " + f.getName());
-   println("Is directory: " + f.isDirectory());
-   println("Size: " + f.length());
-   String lastModified = new Date(f.lastModified()).toString();
-   println("Last Modified: " + lastModified);
-   println("-----------------------");
-   }
-   */
-  /*
-  println("\nListing info about all files in a directory and all subdirectories: ");
-   ArrayList allFiles = listFilesRecursive(path);
-   
-   for (int i = 0; i < allFiles.size(); i++) {
-   File f = (File) allFiles.get(i);    
-   println("Name: " + f.getName());
-   println("Full path: " + f.getAbsolutePath());
-   println("Is directory: " + f.isDirectory());
-   println("Size: " + f.length());
-   String lastModified = new Date(f.lastModified()).toString();
-   println("Last Modified: " + lastModified);
-   println("-----------------------");
-   }
-   */
-
-  //make sure the directory only has images in it
-  //  String[] images = filterByExtension(filenames, "jpg");
-
-  //  //get number of image files in directory
-  //  //get array of all image file names
-  //  //cycle through array names (in date order?)
-  //  for(int i=0; i < images.length; i++){
-  //    PImage currentFrame = loadImage(images[i]);
-  //    mm.addFrame(currentFrame);
-  //  }
-  //  
-  //  mm.finish();
-  //  //for each array entry, add a frame to the movie
-
-
 
   noLoop();
 }
